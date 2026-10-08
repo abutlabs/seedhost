@@ -39,12 +39,12 @@ ssh seedhost "echo connected"
 ### TV Shows by Size & Age
 
 ```bash
-./tv_by_size_and_age.sh            # default: sort by score (big + old first)
+./tv_by_size_and_age.sh            # default: sort by score (big + stale first)
 ./tv_by_size_and_age.sh --size     # sort by size (biggest first)
-./tv_by_size_and_age.sh --age      # sort by last access (oldest first)
+./tv_by_size_and_age.sh --age      # sort by last watched (stalest first)
 ```
 
-Lists all TV shows in the Plex library with size, last access time, and a cleanup score. The default `--score` sort ranks by `size_gb * days_since_access` — the best candidates for freeing space are big files you haven't touched in a long time.
+Lists all TV shows in the Plex library with size, when anyone last watched them (from Plex watch history, read-only), when they were added, and a cleanup score. The default `--score` sort ranks by `size_gb * days_since_watched` (or days since added, for shows never played) — the best candidates for freeing space are big shows nobody has watched in a long time.
 
 ### Movies by Size & Age
 
